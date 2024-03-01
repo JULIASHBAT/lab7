@@ -1,0 +1,34 @@
+.thumbnail-container {
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 10px 0;
+  border-bottom: 2px solid #f0aff1;
+  margin-bottom: 20px;
+}
+.thumbnail {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.thumbnail.active {
+  opacity: 1;
+}
+.thumbnail img {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+}
+.main-image {
+  width: 100%;
+  height: auto;
+}
+.navigation-icon {
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+.navigation-icon:hover {
+  color: #f0aff1;
+}
