@@ -1,16 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" ng-app="AngularJSApp">
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React App</title>
+    <title>Image Gallery</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="inc/loading.css" /> <!-- Include loading.css -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
-<body>
-    <div id="root"></div>
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/babel-standalone@^6.26.0/babel.min.js"></script>
-    <script src="inc/ReactApp.js" type="text/babel"></script>
+<body ng-controller="MainController">
+    <div class="container mt-4">
+        <!-- Thumbnail Navigation -->
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="navigation-icon" ng-click="prevImage()">&lt;</div>
+            <div class="thumbnail-container" id="thumbnailContainer">
+                <div class="thumbnail" ng-repeat="image in images" ng-click="selectImage(image)" ng-class="{'active': image.id === selectedImage.id}">
+                    <img ng-src="{{image.download_url}}" alt="Thumbnail" />
+                </div>
+            </div>
+            <div class="navigation-icon" ng-click="nextImage()">&gt;</div>
+        </div>
+
+        <!-- Main Image Display -->
+        <div class="text-center">
+            <img ng-src="{{selectedImage.download_url}}" class="main-image img-thumbnail mb-3" alt="Selected Image" />
+        </div>
+    </div>
+
+    <script src="inc/scripts.js"></script> <!-- Include scripts.js -->
 </body>
 </html>
